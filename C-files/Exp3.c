@@ -1,5 +1,4 @@
-//Design, Develop and Implement a menu driven program in C for the following operations on
-//STACK of integers (Array implementation of stack with maximum size MAX)
+//Design, Develop and Implement a menu driven program in C for the following operations on STACK of integers (Array implementation of stack with maximum size MAX)
 //a. Push an element on to stack
 //b. Pop an element from stack.
 //c. Demonstrate how stack can be used to check palindrome.
