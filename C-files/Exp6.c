@@ -8,7 +8,7 @@
 
 
 #include <stdio.h>
-#include <stdlib.h> // Include this for the exit() function
+#include <stdlib.h> 
 
 #define MAX 4
 int ch, front = 0, rear = -1, count = 0;
@@ -55,17 +55,16 @@ void display() {
 }
 
 int main() {
-    // clrscr(); // Remove this line
     do {
         printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit");
         printf("\nEnter the choice: ");
         scanf("%d", &ch);
-        fflush(stdin); // Clear input buffer
+        fflush(stdin); 
 
         switch (ch) {
             case 1:
                 printf("\nEnter the character / item to be inserted: ");
-                fflush(stdin); // Clear input buffer
+                fflush(stdin);
                 scanf("%c", &item);
                 insert();
                 break;
