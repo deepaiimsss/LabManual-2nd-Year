@@ -9,8 +9,8 @@
 
 
 #include <stdio.h>
-#include <stdlib.h> // Include this header for 'malloc'
-#include <string.h> // Include this header for 'strcpy'
+#include <stdlib.h> 
+#include <string.h> 
 
 struct emp {
     int ssn;
@@ -179,13 +179,13 @@ NODE *delete_end(NODE *head) {
     p = head;
     
     while (p->right != NULL)
-        p = p->right; // Go to the last node
+        p = p->right; 
     
     q = p->left;
     q->right = NULL;
     p->left = NULL;
     
-    free(p); // Delete last node
+    free(p); 
     printf("\nLast(end) entry is deleted");
     
     return head;
@@ -293,23 +293,23 @@ int main() {
                 scanf("%d", &n);
                 
                 for (i = 0; i < n; i++)
-                    head = create(head); // Call to Create node...
+                    head = create(head); 
                 
                 break;
             case 2:
-                head = display(head); // Call to Display...
+                head = display(head); 
                 break;
             case 3:
-                head = insert(head); // Call to Insert...
+                head = insert(head); 
                 break;
             case 4:
-                head = del(head); // Call to delete
+                head = del(head); 
                 break;
             case 5:
                 head = queue(head);
                 break;
             case 6:
-                exit(0); // Exit...
+                exit(0); 
                 break;
         }
     } while (ch != 6);
