@@ -1,66 +1,64 @@
 //Write a program that will convert the given decimal input in to other number systems Hexadecimal, Octal, and Binary. The class Conversion will have the methods as GetNumber, Print Number, Convert To Hexadecimal, Convert To Octal, Convert To Binary.
 
 
-
 #include <stdio.h>
 
-class Conversion {
-private:
+typedef struct {
     int decimalNumber;
+} Conversion;
 
-public:
-    void GetNumber() {
-        printf("Enter a decimal number: ");
-        scanf("%d", &decimalNumber);
-    }
-
-    void PrintNumber() {
-        printf("Decimal Number: %d\n", decimalNumber);
-    }
-
-    void ConvertToHexadecimal() {
-        printf("Hexadecimal: %X\n", decimalNumber);
-    }
-
-    void ConvertToOctal() {
-        printf("Octal: %o\n", decimalNumber);
-    }
-
-    void ConvertToBinary() {
-        printf("Binary: ");
-        int binary[32];
-        int index = 0;
-        int temp = decimalNumber;
-
-        // Convert decimal to binary
-        while (temp > 0) {
-            binary[index] = temp % 2;
-            temp /= 2;
-            index++;
-        }
-
-        // Print binary representation
-        for (int i = index - 1; i >= 0; --i) {
-            printf("%d", binary[i]);
-        }
-
-        printf("\n");
-    }
-};
+void GetNumber(Conversion *conversion);
+void PrintNumber(Conversion conversion);
+void ConvertToHexadecimal(Conversion conversion);
+void ConvertToOctal(Conversion conversion);
+void ConvertToBinary(Conversion conversion);
 
 int main() {
     Conversion conversion;
 
-    // Get decimal number from the user
-    conversion.GetNumber();
+    GetNumber(&conversion);
 
-    // Print the decimal number
-    conversion.PrintNumber();
+    PrintNumber(conversion);
 
-    // Convert and print in hexadecimal, octal, and binary
-    conversion.ConvertToHexadecimal();
-    conversion.ConvertToOctal();
-    conversion.ConvertToBinary();
+    ConvertToHexadecimal(conversion);
+    ConvertToOctal(conversion);
+    ConvertToBinary(conversion);
 
     return 0;
+}
+
+void GetNumber(Conversion *conversion) {
+    printf("Enter a decimal number: ");
+    scanf("%d", &(conversion->decimalNumber));
+}
+
+void PrintNumber(Conversion conversion) {
+    printf("Decimal Number: %d\n", conversion.decimalNumber);
+}
+
+void ConvertToHexadecimal(Conversion conversion) {
+    printf("Hexadecimal: %X\n", conversion.decimalNumber);
+}
+
+void ConvertToOctal(Conversion conversion) {
+    printf("Octal: %o\n", conversion.decimalNumber);
+}
+
+void ConvertToBinary(Conversion conversion) {
+    printf("Binary: ");
+    int binary[32];
+    int index = 0;
+    int temp = conversion.decimalNumber;
+
+    while (temp > 0) {
+        binary[index] = temp % 2;
+        temp /= 2;
+        index++;
+    }
+
+    for (int i = index - 1; i >= 0; --i) {
+        printf("%d", binary[i]);
+    }
+
+    printf("\n");
 }
